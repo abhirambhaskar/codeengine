@@ -1,0 +1,17 @@
+{
+  "name": "reon-lang",
+  "version": "0.1.0",
+  "description": "Experimental Reon language compiler",
+  "main": "src/reon.js",
+  "bin": {
+    "reon": "dist/reon.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.0.0"
+  }
+}
