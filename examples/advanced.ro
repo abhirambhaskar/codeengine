@@ -1,0 +1,11 @@
+component Counter {
+  fun run(nums) => {
+    for n in nums => {
+      if n > 0 => {
+        print("n: " + n);
+      } else => {
+        print("skip");
+      }
+    }
+  }
+}

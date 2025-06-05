@@ -50,6 +50,57 @@ Compiles to:
 console.log("debug");
 ```
 
+### Variables
+Declare constants using `val`.
+
+```ro
+val greeting = "hi";
+```
+
+Compiles to:
+
+```ts
+const greeting = "hi";
+```
+
+### Conditionals
+Use `if` with `=>` for blocks and optional `else`.
+
+```ro
+if x > 0 => {
+  print("positive");
+} else => {
+  print("negative");
+}
+```
+
+Compiles to:
+
+```ts
+if (x > 0) {
+  console.log("positive");
+} else {
+  console.log("negative");
+}
+```
+
+### Loops
+Iterate with a concise `for ... in ... =>` syntax.
+
+```ro
+for item in items => {
+  print(item);
+}
+```
+
+Compiles to:
+
+```ts
+for (const item of items) {
+  console.log(item);
+}
+```
+
 ## Getting Started
 
 1. Install dependencies and build the compiler:
@@ -63,9 +114,11 @@ npm run build
 
 ```bash
 npx reon examples/hello.ro
+npx reon examples/advanced.ro
 ```
 
-This produces `examples/hello.ts` which can be processed by `tsc` or Node.js.
+This produces `examples/hello.ts` and `examples/advanced.ts` which can be
+processed by `tsc` or Node.js.
 
 ## Status
 

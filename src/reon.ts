@@ -10,6 +10,18 @@ function compile(content: string): string {
   output = output.replace(/^(\s*)fun\s+([A-Za-z0-9_]+)\s*\(([^)]*)\)\s*=>\s*\{/gm, '$1$2($3) {');
   // print(expr) -> console.log(expr)
   output = output.replace(/print\s*\(([^)]*)\);?/g, 'console.log($1);');
+  // val name = expr; -> const name = expr;
+  output = output.replace(/^\s*val\s+([A-Za-z0-9_]+)\s*=\s*([^;]+);/gm, 'const $1 = $2;');
+  // if condition => { -> if (condition) {
+  output = output.replace(/if\s+([^\{]+)\s*=>\s*\{/g, (_m, cond) => {
+    return `if (${String(cond).trim()}) {`;
+  });
+  // else => { -> else {
+  output = output.replace(/else\s*=>\s*\{/g, 'else {');
+  // for item in items => { -> for (const item of items) {
+  output = output.replace(/for\s+([A-Za-z0-9_]+)\s+in\s+([^\s\{]+)\s*=>\s*\{/g, (_m, item, arr) => {
+    return `for (const ${item} of ${String(arr).trim()}) {`;
+  });
   return output;
 }
 
