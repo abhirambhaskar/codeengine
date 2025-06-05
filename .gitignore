@@ -1,0 +1,4 @@
+node_modules/
+dist/
+# compiled examples
+examples/*.ts
